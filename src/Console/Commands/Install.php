@@ -6,14 +6,14 @@ use Illuminate\Console\Command;
 use Watchmaker\error\ClassNotFoundException;
 use Watchmaker\Watchmaker;
 
-class Show extends Command
+class Install extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'quartz:show {name=QuartzCron : class name} {path=\App\Quarts : namespace}';
+    protected $signature = 'quartz:install {name=QuartzCron : class name} {path=\App\Quarts : namespace}';
 
     /**
      * The console command description.
@@ -51,7 +51,7 @@ class Show extends Command
         $watchmaker = new Watchmaker();
         $quarts = new $class();
         $watchmaker = $quarts->handle($watchmaker);
-        $text = $watchmaker->show();
+        $text = $watchmaker->install();
 
         $this->output->text($text);
     }

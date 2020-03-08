@@ -2,12 +2,9 @@
 
 namespace Quartz\Providers;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
+use Quartz\Console\Commands\Install;
 use Quartz\Console\Commands\Show;
-use Search\Console\Commands\FilterGenerator;
-use Search\Console\Commands\SearchableGenerator;
-use Search\Searchable;
 
 class QuartzServiceProvider extends ServiceProvider
 {
@@ -31,7 +28,8 @@ class QuartzServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                Show::class
+                Show::class,
+                Install::class
             ]);
         }
     }
