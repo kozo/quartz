@@ -1,0 +1,22 @@
+{
+    "name": "kozo/quartz",
+    "authors": [
+        {
+            "name": "kozo",
+            "email": "kozo.sakuragawa@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Quartz\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Quartz\\Providers\\QuartzServiceProvider"
+            ]
+        }
+    }
+}
