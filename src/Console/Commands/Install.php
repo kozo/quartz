@@ -13,7 +13,11 @@ class Install extends Command
      *
      * @var string
      */
-    protected $signature = 'quartz:install {name=QuartzCron : class name} {path=\App\Quarts : namespace}';
+    protected $signature = 'quartz:install
+        {name=QuartzCron : class name}
+        {path=\App\Quarts : namespace}
+        {--d|delete : delete}
+        {--b|backup : backup}';
 
     /**
      * The console command description.
@@ -40,6 +44,9 @@ class Install extends Command
      */
     public function handle()
     {
+        // dump($this->argument());
+        //dump($this->options());
+
         $path = $this->argument('path');
         $className = $this->argument('name');
 
@@ -51,8 +58,15 @@ class Install extends Command
         $watchmaker = new Watchmaker();
         $quarts = new $class();
         $watchmaker = $quarts->handle($watchmaker);
-        $text = $watchmaker->install();
 
-        $this->output->text($text);
+        // @todo : previewをする
+
+        if ($this->confirm('Do you want to install?')) {
+            //
+            echo "install ok";
+            $text = $watchmaker->install();
+
+            $this->output->text($text);
+        }
     }
 }
