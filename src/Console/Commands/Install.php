@@ -3,6 +3,7 @@
 namespace Quartz\Console\Commands;
 
 use Illuminate\Console\Command;
+use Watchmaker\Config;
 use Watchmaker\error\ClassNotFoundException;
 use Watchmaker\Watchmaker;
 
@@ -55,7 +56,10 @@ class Install extends Command
             throw new ClassNotFoundException();
         }
 
-        $watchmaker = new Watchmaker();
+        $options = $this->options();
+        $config = new Config($options);
+
+        $watchmaker = new Watchmaker($config);
         $quarts = new $class();
         $watchmaker = $quarts->handle($watchmaker);
 
