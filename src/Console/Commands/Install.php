@@ -66,11 +66,13 @@ class Install extends Command
         // @todo : previewをする
 
         if ($this->confirm('Do you want to install?')) {
-            //
-            echo "install ok";
-            $text = $watchmaker->install();
+            try {
+                $text = $watchmaker->install();
 
-            $this->output->text($text);
+                $this->output->text($text);
+            } catch (\Exception $e) {
+                $this->output->error($e->getMessage());
+            }
         }
     }
 }
