@@ -14,7 +14,7 @@ class Show extends Command
      *
      * @var string
      */
-    protected $signature = 'quartz:show {name=QuartzCron : class name} {path=\App\Quarts : namespace}';
+    protected $signature = 'quartz:show {name=QuartzCron : class name} {namespace=\App\Quartz : namespace}';
 
     /**
      * The console command description.
@@ -41,10 +41,10 @@ class Show extends Command
      */
     public function handle()
     {
-        $path = $this->argument('path');
+        $namespace = $this->argument('namespace');
         $className = $this->argument('name');
 
-        $class = sprintf("%s\\%s", $path, $className);
+        $class = sprintf("%s\\%s", $namespace, $className);
         if (class_exists($class) === false) {
             throw new ClassNotFoundException();
         }

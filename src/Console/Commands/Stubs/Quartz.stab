@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use Watchmaker\Watchmaker;
+
+class DummyClass {
+
+    public function handle(Watchmaker $watchmaker): Watchmaker
+    {
+
+        //
+
+        return $watchmaker;
+    }
+}

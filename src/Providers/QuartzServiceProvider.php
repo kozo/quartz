@@ -3,6 +3,7 @@
 namespace Quartz\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Quartz\Console\Commands\Create;
 use Quartz\Console\Commands\Install;
 use Quartz\Console\Commands\Show;
 
@@ -29,7 +30,8 @@ class QuartzServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 Show::class,
-                Install::class
+                Install::class,
+                Create::class
             ]);
         }
     }

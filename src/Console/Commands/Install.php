@@ -16,7 +16,7 @@ class Install extends Command
      */
     protected $signature = 'quartz:install
         {name=QuartzCron : class name}
-        {path=\App\Quarts : namespace}
+        {namespace=\App\Quartz : namespace}
         {--d|delete : delete}
         {--b|backup : backup}';
 
@@ -46,12 +46,14 @@ class Install extends Command
     public function handle()
     {
         // dump($this->argument());
-        //dump($this->options());
+        // dump($this->options());
+        // dump($this->option('quiet'));
+        //exit;
 
-        $path = $this->argument('path');
+        $namespace = $this->argument('namespace');
         $className = $this->argument('name');
 
-        $class = sprintf("%s\\%s", $path, $className);
+        $class = sprintf("%s\\%s", $namespace, $className);
         if (class_exists($class) === false) {
             throw new ClassNotFoundException();
         }
@@ -65,7 +67,7 @@ class Install extends Command
 
         // @todo : previewをする
 
-        if ($this->confirm('Do you want to install?')) {
+        if ($this->option('quiet') === true || $this->confirm('Do you want to install?')) {
             try {
                 $text = $watchmaker->install();
 
