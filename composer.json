@@ -6,7 +6,11 @@
             "email": "kozo.sakuragawa@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "require": {
+            "kozo/watchmaker": "dev-master"
+        },
+    },
     "autoload": {
         "psr-4": {
             "Quartz\\": "src/"
