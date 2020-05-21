@@ -8,7 +8,7 @@
     ],
     "require": {
         "require": {
-            "kozo/watchmaker": "dev-master"
+            "kozo/watchmaker": "0.1.0"
         },
     },
     "autoload": {
