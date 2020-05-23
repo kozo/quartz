@@ -2,8 +2,7 @@
     "name": "kozo/quartz",
     "authors": [
         {
-            "name": "kozo",
-            "email": "kozo.sakuragawa@gmail.com"
+            "name": "kozo"
         }
     ],
     "require": {
