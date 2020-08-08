@@ -1,7 +1,7 @@
 # quartz
 
 ```
-composer require quartz
+composer require kozo/quartz
 ```
 
 ## create quartz file.
