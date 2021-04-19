@@ -24,17 +24,17 @@ class QuartzCron {
 
     public function handle(Watchmaker $watchmaker): Watchmaker
     {
-        $i = $watchmaker->task('php hoge/fuga.php');
-        $i = $i
+        $task1 = $watchmaker->task('php hoge/fuga.php');
+        $task1 = $task1
             ->month(1)
             ->day(5);
-        $watchmaker->add($i);
+        $watchmaker->add($task1);
 
-        $j = $watchmaker->task('php hoge/hoge.php');
-        $j = $j
+        $task2 = $watchmaker->task('php hoge/hoge.php');
+        $task2 = $task2
             ->month(2)
             ->day(6);
-        $watchmaker->add($j);
+        $watchmaker->add($task2);
 
         return $watchmaker;
     }
